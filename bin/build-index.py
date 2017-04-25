@@ -10,11 +10,8 @@ jurisdictions = json.load(open('_data/jurisdictions.json'))
 
 
 def write_year(juri, year, gazettes):
-    provincial = juri != "ZA"
     juri_info = jurisdictions[juri]
     title = juri_info["name"]
-    if provincial:
-        title = title + " Provincial"
     title = title + " Gazettes"
 
     with open('_gazettes/%s/%s.md' % (juri, year), 'w') as f:
@@ -23,7 +20,6 @@ def write_year(juri, year, gazettes):
         f.write("title: %s %s\n" % (title, year))
         f.write("jurisdiction: %s\n" % juri)
         f.write("jurisdiction_name: %s\n" % juri_info["name"])
-        f.write("provincial: %s\n" % str(provincial).lower())
         f.write('year: "%s"\n' % year)
         f.write("---\n")
 
@@ -36,11 +32,8 @@ def write_jurisdiction(juri, years):
         pass
 
     with open('%s/index.md' % path, 'w') as f:
-        provincial = juri != "ZA"
         juri_info = jurisdictions[juri]
         title = juri_info["name"]
-        if provincial:
-            title = title + " Provincial"
         title = title + " Gazettes"
 
         f.write("---\n")
@@ -48,7 +41,6 @@ def write_jurisdiction(juri, years):
         f.write("title: %s\n" % title)
         f.write("jurisdiction: %s\n" % juri)
         f.write("jurisdiction_name: %s\n" % juri_info["name"])
-        f.write("provincial: %s\n" % str(provincial).lower())
         f.write("---\n")
 
     for year in years.iterkeys():
@@ -72,13 +64,12 @@ def build_index():
         'years': defaultdict(int),
     }
 
-    for line in open('gazette-index-latest.jsonlines'):
+    for line in open('data.jsonlines'):
         gazette = json.loads(line)
-        juri = gazette['jurisdiction_code']
         year = gazette['publication_date'].split('-')[0]
         iyear = int(year)
         if 'archive_url' not in gazette:
-            gazette['archive_url'] = 'http://archive.opengazettes.org.za/archive/' + gazette['archive_path']
+            gazette['archive_url'] = 'https://s3-eu-west-1.amazonaws.com/cfa-opengazettes-ke/gazettes/' + gazette['files'][0]['path']
 
         gazettes[juri]['gazettes'][year].append(gazette)
         gazettes[juri]['years'].add(year)
@@ -96,7 +87,7 @@ def build_index():
     for juris in gazettes.itervalues():
         juris['years'] = sorted(list(juris['years']))
         for items in juris['gazettes'].itervalues():
-            items.sort(key=lambda g: [g['publication_date'][:7], g['volume_number'], g['issue_number'], g['issue_title']])
+            items.sort(key=lambda g: [g['publication_date'][:7], g['gazette_volume'], g['gazette_number'], g['gazette_title']])
 
     gazettes['stats'] = stats
 

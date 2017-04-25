@@ -1,6 +1,6 @@
 # Gazette listing
 
-This is a simple Jekyll website listing South African Gazettes that [Code for South Africa](http://codes4sa.org)
+This is a simple Jekyll website listing Kenyan Gazettes that [Code for Kenya](http://codes4sa.org)
 has scraped and [indexed and stored in S3](http://archive.opengazettes.org.za/index/gazette-index-latest.jsonlines) as part
 of our [gazette liberation project](https://github.com/Code4SA/gazettescrape).
 
