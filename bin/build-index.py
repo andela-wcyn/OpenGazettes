@@ -68,10 +68,16 @@ def build_index():
 
     for line in open('data.jsonlines'):
         gazette = json.loads(line)
+
+        # Don't include gazette if it has an error
+        if gazette.get('files')[0]['has_error']:
+            continue
+
         year = gazette['publication_date'].split('-')[0]
         iyear = int(year)
         if 'archive_url' not in gazette:
-            gazette['archive_url'] = 'https://s3-eu-west-1.amazonaws.com/cfa-opengazettes-ke/gazettes/' + gazette['files'][0]['path']
+            gazette['archive_url'] = 'https://s3-eu-west-1.amazonaws.com/'\
+                'cfa-opengazettes-ke/gazettes/' + gazette['files'][0]['path']
 
         gazettes[juri]['gazettes'][year].append(gazette)
         gazettes[juri]['years'].add(year)
@@ -89,7 +95,10 @@ def build_index():
     for code, juris in gazettes.iteritems():
         juris['years'] = sorted(list(juris['years']))
         for items in juris['gazettes'].itervalues():
-            items.sort(key=lambda g: [g['publication_date'][:7], g['gazette_volume'], g['gazette_number'], g['gazette_title']])
+            items.sort(key=lambda g: [g['publication_date'][:7],
+                                      g['gazette_volume'],
+                                      g['gazette_number'],
+                                      g['gazette_title']])
 
         items = list(chain(*juris['gazettes'].itervalues()))
 
@@ -105,7 +114,8 @@ def build_index():
             years.update({str(year): 0})
 
         # count by year and month
-        year_months = Counter(tuple(g['publication_date'].split("-")[0:2]) for g in items)
+        year_months = Counter(tuple(g['publication_date'].split("-")[0:2])
+                              for g in items)
 
         # ensure values for contiguous years and months
         for year in xrange(min_year, max_year + 1):
