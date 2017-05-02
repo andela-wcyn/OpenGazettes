@@ -9,6 +9,7 @@
 title: Open Gazettes Kenya
 email: gazettes@codeforafrica.org
 url: http://opengazettes.or.ke
+enforce_ssl: opengazettes.or.ke
 baseurl:
 description: Making Kenyan Government Gazettes freely available.
 twitter:
