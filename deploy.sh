@@ -3,11 +3,15 @@
 # Cleans and deploys the project to S3.
 #
 # Usage:
-#   ./deploy.sh <AWS_ACCESS_KEY_ID> <AWS_SECRET_ACCESS_KEY>
+#   ./deploy.sh
+#
+# This script get the AWS_ACCESS_KEY_ID and AWS_SECRET_ACCESS_KEY from your .env file
+# It will fail if those are not present
 
 # Initialize some vars
-export AWS_ACCESS_KEY_ID="$1"
-export AWS_SECRET_ACCESS_KEY="$2"
+. .env
+export AWS_ACCESS_KEY_ID="$AWS_ACCESS_KEY_ID"
+export AWS_SECRET_ACCESS_KEY="$AWS_SECRET_ACCESS_KEY"
 export AWS_DEFAULT_REGION="eu-west-1"
 export BUCKET="opengazettes.or.ke"
 
@@ -15,8 +19,8 @@ export DEPLOY_DIR=".deploy"
 
 bundle exec jekyll build
 
-# Copy the site directory to a temporary location so that modifications we make don't get overwritten by the Jekyll server
-# that is potentially running
+# Copy the site directory to a temporary location so that modifications we make 
+# don't get overwritten by the Jekyll server that is potentially running
 mkdir -p $DEPLOY_DIR
 cp -a _site/. $DEPLOY_DIR
 
