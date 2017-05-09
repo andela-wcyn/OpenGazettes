@@ -13,7 +13,7 @@ export BUCKET="opengazettes.or.ke"
 
 export DEPLOY_DIR=".deploy"
 
-jekyll build
+bundle exec jekyll build
 
 # Copy the site directory to a temporary location so that modifications we make don't get overwritten by the Jekyll server
 # that is potentially running
