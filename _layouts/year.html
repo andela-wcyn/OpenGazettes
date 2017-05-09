@@ -34,7 +34,7 @@ layout: default
         {% assign date = currentdate %}
       {% endif %}
       <li>
-        <a href="{{ gazette.archive_url }}">{{ gazette.gazette_title }}</a>
+        <a target="_blank" href="http://docs.google.com/gview?url={{ gazette.archive_url }}">{{ gazette.gazette_title }}</a>
       </li>
       {% if forloop.last %}</ul>{% endif %}
     {% endfor %}
