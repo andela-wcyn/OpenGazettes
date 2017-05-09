@@ -7,13 +7,12 @@
 
 # Site settings
 title: Open Gazettes Kenya
-email: gazettes@code4sa.org
-url: http://opengazettes.or.ke
+email: gazettes@codeforafrica.org
+url: https://opengazettes.or.ke
 baseurl:
-description: Making Kenyan Government Gazettes freely available.
+description: Making Government Gazettes freely available.
 twitter:
-  username: code4sa
-logo: /img/logo.png
+  username: code4africa
 
 gems:
   - jekyll-seo-tag
@@ -33,3 +32,9 @@ defaults:
 # Build settings
 markdown: kramdown
 exclude: [vendor]
+
+google_analytics: UA-33350783-11
+
+aleph_url: https://search.opengazettes.or.ke
+s3_url: https://archive.opengazettes.or.ke
+

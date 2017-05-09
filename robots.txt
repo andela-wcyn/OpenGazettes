@@ -1,3 +1,5 @@
+---
+---
 User-agent: *
 Allow: /
-Sitemap: https://opengazettes.org.za/sitemap.xml
+Sitemap: {{ site.url }}/sitemap.xml

@@ -1,47 +1,56 @@
 ---
 layout: base
+body_class: home
 ---
-<div class="introduction">
+<section class="introduction">
   <div class="container">
     <div class="row">
-      <div class="col-sm-6">
-        <img src="/img/banner_5.png" style="width:100%;" />
+      <div class="col-sm-6 text-center">
+        <img src="/img/banner_4.png" style="width:65%; margin-top: 20px;" />
       </div>
       <div class="col-sm-6">
 
         <div class="banner">
-          <p>Help us build the biggest collection of freely available gazettes in Kenya</p>
-          <a href="/join" class="big-cta">Join the Gazette Liberation&nbsp;<i class="fa fa-chevron-circle-right" aria-hidden="true"></i></a>
-          <a class="readmore" href="http://code4sa.org/2016/10/05/gazette-launch.html" target="_blank">Read more</a>
+          <p>Help us build the largest collection of freely available gazettes across Africa</p>
+          <p><a href="/join" class="big-cta">Join the Gazette Liberation&nbsp;<i class="fa fa-chevron-circle-right" aria-hidden="true"></i></a></p>
+          <p><a class="readmore" href="http://medium.com/code-for-africa/liberating-the-data-in-government-gazettes-380ec068077e" target="_blank" rel="noopener">Read more</a></p>
         </div>
 
         <div class="row icons-section">
           <div class="col-sm-6">   
               <img class="icons-cta" src="img/icons/notebook.png" alt="Using open gazettes as a journalist" />
-              <p><a href="http://code4sa.org/2016/10/06/gazette-journalists.html" target="_blank">Using open gazettes as a journalist</a>
+              <p><a href="http://code4sa.org/2016/10/06/gazette-journalists.html" target="_blank">Using OpenGazettes as a journalist</a>
           </div>
           <div class="col-sm-6">
               <img class="icons-cta" src="img/icons/browser.png" alt="Putting together opengazettes.org.za" />
-              <p><a href="http://code4sa.org/2016/10/20/how-we-did-it.html" target="_blank">Putting together opengazettes.org.za</a></p>
+              <p><a href="http://medium.com/code-for-africa/liberating-the-data-in-government-gazettes-380ec068077e" target="_blank" rel="noopener">Putting together OpenGazettes</a></p>
           </div>
         </div>
 
       </div>
     </div>
   </div>
-</div>
+</section> <!-- /.introduction -->
 
-<div class="gazettes_nav">
+<section class="search">
   <div class="container">
     <div class="row">
-      <div class="col-md-8 col-md-offset-2">
+      <div class="col-sm-6 col-sm-offset-3">
         <h2>Search the Gazettes</h2>
-
         {% include search.html %}
-
-        <h2>Kenya Gazettes</h2>
-        <a class="btn_p" href="/gazettes/KE/"><button class="gazettes_nav_btn btn_nat" name="button"><span class="btn_text">Kenya Government Gazettes</span></button></a>
       </div>
     </div>
   </div>
-</div>
+</section> <!-- /.search -->
+
+<section class="gazettes_nav">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-6 col-sm-offset-3">
+
+        <h2>Kenya Gazettes</h2>
+        <a class="btn_p" href="/gazettes/KE/"><button class="gazettes_nav_btn btn_nat" name="button"><span class="btn_text">Kenyan Government Gazettes</span></button></a>
+      </div>
+    </div>
+  </div>
+</section> <!-- /.gazettes_nav -->
