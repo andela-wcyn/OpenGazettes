@@ -18,7 +18,7 @@ by jurisdiction and year. Jekyll then does the hard work of generating the listi
 
 To update this list from the production index:
 
-    curl http://archive.opengazettes.or.ke/index/gazette-index-latest.jsonlines -O
+    curl https://s3-eu-west-1.amazonaws.com/cfa-opengazettes-ke/gazettes/data.jsonlines -O
     python bin/build-index.py
 
 # Build process

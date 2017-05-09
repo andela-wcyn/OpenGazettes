@@ -23,7 +23,6 @@ gems:
 collections:
   gazettes:
     output: true
-    permalink: /:collection/:path/
 
 defaults:
   -
