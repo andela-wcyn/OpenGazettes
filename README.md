@@ -14,14 +14,19 @@ The structure is simple. Each jurisdiction (country/province) and year has an en
 
 To update this list from the production index:
 
-    curl http://archive.opengazettes.or.ke/index/gazette-index-latest.jsonlines -O
+    curl https://s3-eu-west-1.amazonaws.com/cfa-opengazettes-ke/gazettes/data.jsonlines -O
     python bin/build-index.py
 
-# Build process
+# Deploying to S3
 
-The website is built automatically by GitHub pages based on the Gazette information already in the repository.
+The website is deployed to S3 using [s3_website](https://github.com/laurilehmijoki/s3_website)
 
-The [build branch](https://github.com/OpenGazettes/OpenGazettes/tree/build) has code that updates the information in the repository from the Gazette index in S3. A Travis build for this branch is triggered automatically when we archive new Gazettes in S3.
+To deploy:
+
+- Make a copy of the `.env.example` file and name it `.env`
+- Add your `AWS_ACCESS_KEY_ID` and `AWS_SECRET_ACCESS_KEY` to the `.env` file
+- Run `./deploy.sh` from the root directory
+- You're done!
 
 # License
 

@@ -5,7 +5,7 @@
 # Usage:
 #   ./deploy.sh
 #
-# This script get the AWS_ACCESS_KEY_ID and AWS_SECRET_ACCESS_KEY from your .env file
+# This script gets the AWS_ACCESS_KEY_ID and AWS_SECRET_ACCESS_KEY from your .env file
 # It will fail if those are not present
 
 # Initialize some vars
