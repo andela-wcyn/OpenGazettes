@@ -10,11 +10,6 @@
 
 # Initialize some vars
 . .env
-export AWS_ACCESS_KEY_ID="$AWS_ACCESS_KEY_ID"
-export AWS_SECRET_ACCESS_KEY="$AWS_SECRET_ACCESS_KEY"
-export AWS_DEFAULT_REGION="eu-west-1"
-export BUCKET="opengazettes.or.ke"
-
 export DEPLOY_DIR=".deploy"
 
 bundle exec jekyll build
