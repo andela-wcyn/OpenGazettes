@@ -1,0 +1,43 @@
+{% if page.jurisdiction == "KE" %}
+  <section class="resources" id="failed_gaz">
+    {% if page.year %}
+    <h4>Missing Gazettes {{ page.year }} </h4>
+      <ul>
+        {% if site.data.failed_gazettes[page.jurisdiction].gazettes[page.year].size > 0 %}
+          {% for gazette in site.data.failed_gazettes[page.jurisdiction].gazettes[page.year] %}
+            <li> {{ gazette.gazette_title }} </li>
+          {% endfor %}
+        {% else %}
+          <p> No missing gazettes</p>
+        {% endif %}
+      </ul>
+    {% else %}
+      <h4>Missing Gazettes</h4>
+      <div class="panel-group" id="accordion">
+        <div class="panel panel-default">
+          <ul> 
+            {% for gazettes_data in site.data.failed_gazettes[page.jurisdiction].gazettes %}
+              <li>
+                <div class="panel-heading">
+                  <h4 class="panel-title">
+                    <a data-toggle="collapse" data-parent="#accordion" href="#collapse{{ gazettes_data[0] }}">
+                    {{ gazettes_data[0] }}</a>
+                  </h4>
+                </div>
+                <div id="collapse{{ gazettes_data[0] }}" class="panel-collapse collapse">
+                  <div class="panel-body">
+                    <ul>
+                      {% for gazette in gazettes_data[1] %}
+                        <li> {{ gazette.gazette_title }} </li>
+                      {% endfor %}
+                    </ul>
+                  </div>
+                </div>
+              </li>
+            {% endfor %}
+          </ul>
+        </div>
+      </div>
+    {% endif %}
+  </section>
+{% endif %}
