@@ -33,6 +33,9 @@ for file in $DEPLOY_DIR/*.html; do
     fi
 done
 
+# Go through sitemap.xml and remove occurences of `.html`
+sed -e 's/.html//g' _site/sitemap.xml > $DEPLOY_DIR/sitemap.xml
+
 s3_website push --site=$DEPLOY_DIR
 
 # Cleanup
