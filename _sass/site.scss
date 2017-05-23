@@ -1,11 +1,11 @@
 @import url('https://fonts.googleapis.com/css?family=Lato');
 
 body {
-    font-family: 'Open Sans', sans-serif;
-    font-size: 16px;
-    font-weight: 300;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 16px;
+  font-weight: 300;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 .site-header {
@@ -18,7 +18,7 @@ body {
   }
 
   .navbar.navbar-default {
-    background-color: #333;
+    background-color: #3a4953;
     border-bottom:0;
     color: #fff;
     box-shadow: 0 0 2px rgba(0,0,0,0.5);
@@ -49,7 +49,7 @@ body {
 
         &.active {
           &> a {
-            background-color: #333;
+            background-color: #3a4953;
             color: #c50003;
             font-weight: 700;
           }
@@ -78,211 +78,196 @@ body {
     }
   }
   .box-num {
-      font-weight: 700;
-      font-size: 26px;
-      text-align:center;
-      padding: 2px 14px;
-      margin: 0px 5px;
-      border: 1px solid $link-color;
-      color: $link-color;
+    font-weight: 700;
+    font-size: 26px;
+    text-align:center;
+    padding: 2px 14px;
+    margin: 0px 5px;
+    border: 1px solid $link-color;
+    color: $link-color;
   }
   .navbar-brand {
-      color: #ffffff!important;
-      font-size: 22px;
-      font-weight: 400;
+    color: #ffffff!important;
+    font-size: 22px;
+    font-weight: 400;
 
-      @media (max-width: $screen-xs-max) {
-          font-size: 20px;
-      }
+    @media (max-width: $screen-xs-max) {
+      font-size: 20px;
+    }
 
-      &,
-      &:visited {
-          color: $grey-color-dark;
-      }
+    &,
+    &:visited {
+      color: $grey-color-dark;
+    }
   }
 
   .header-cta {
-      p.cta-tagline {
-          clear:both;
-          text-align: center;
-          font-size: 24px;
-          font-weight: 600;
-          margin-bottom: 15px;
-      }
-      p.cta-tagline row col-md-8 p {
-          margin-top: 12px;
-      }
+    p.cta-tagline {
+      clear:both;
+      text-align: center;
+      font-size: 24px;
+      font-weight: 600;
+      margin-bottom: 15px;
+    }
+    p.cta-tagline row col-md-8 p {
+      margin-top: 12px;
+    }
   }
 }
 
 header {
-    margin-bottom: 20px;
+  margin-bottom: 20px;
 }
 
 .site-footer {
-    margin-top: 30px;
-    /*padding-top: 30px;
-    padding-bottom: 30px;*/
+  margin-top: 30px;
 
-    h2 {
-        margin-top: 0px;
-    }
-    .logos {
-        margin-top: 30px;
-    }
-    .logo {
-        width: auto;
-        height: 75px;
-        margin: auto;
-        margin-bottom: 20px;
-    }
+  h2 {
+    margin-top: 0px;
+  }
+  
+  .logo {
+    max-width: 100%;
+    width: auto;
+    height: 75px;
+    margin: 5px 5px 10px;
+    padding: 5px;
+  }
 
-    .footer-info {
-      background-color: #f7f7f7;
-      padding: 30px 0px;
-    }
+  .footer-info {
+    background-color: #f7f7f7;
+    padding: 50px 0px 40px;
+  }
 
-    .footer-credits {
-        background-color: #f1f1f1;
-        padding: 30px 0px;
-    }
+  .footer-credits {
+    background-color: #f1f1f1;
+    padding: 30px 0px;
+  }
 
-    @media (max-width: 420px) {
-      .col-logo {
-        width: 100%;
-      }
+  @media (max-width: 420px) {
+    .col-logo {
+      width: 100%;
     }
+  }
 }
 
 .year-nav {
-    list-style-type: none;
-    padding-left: 0px;
+  list-style-type: none;
+  padding-left: 0px;
 
-    li {
-        display: inline;
-        margin-right: 15px;
+  li {
+    display: inline;
+    margin-right: 15px;
 
-        a,
-        a:visited {
-            color: $link-color;
-        }
-
-        a.active,
-        a.active:visited {
-            color: $text-color;
-            font-weight: 500;
-        }
+    a,
+    a:visited {
+      color: $link-color;
     }
+
+    a.active,
+    a.active:visited {
+      color: $text-color;
+      font-weight: 500;
+    }
+  }
 }
 
 h2, .h2 {
-    font-weight: 600;
-    color: #333;
+  font-weight: 600;
+  color: #333;
 }
 
 .introduction {
-    margin-top: 30px;
-    margin-bottom: 30px;
+  margin-top: 50px;
+  margin-bottom: 50px;
 }
 
 .banner {
-    font-size: 26px;
-    font-weight: 600;
-    text-align: center;
+  font-size: 26px;
+  font-weight: 600;
+  text-align: center;
 }
 
 .page-tag {
-    font-size: 25px;
-    font-weight: 400;
-    color: #333;
-    margin-left: -15px;
+  font-size: 25px;
+  font-weight: 400;
+  color: #333;
+  margin-left: -15px;
 }
 
-.gazettes_nav {
+.home {
+
+  section.search {
+    background-color: $brand-primary;
+    color: #fff !important;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    text-align: center;
+
+    h2 {
+      color: #fff !important;
+      margin-bottom: 20px;
+    }
     .search-form {
-        margin-bottom: 40px;
+      margin-bottom: 40px;
     }
 
+    .input-group {
+      @extend .input-group-lg;
+    }
+    input {
+      border-radius: 6px 0 0 6px !important;
+    }
+    .btn {
+      @extend .btn-danger;
+      border-radius: 0 6px 6px 0 !important;
+    }
+  }
+
+  section.gazettes_nav {
+
+    margin-top: 30px;
+    margin-bottom: 40px;
+
     .gazettes_nav_btn {
-        background-color: $link-color;
-        border: none;
-        color: #ffffff;
-        padding: 10px;
-        font-weight: 600;
-        margin-bottom: 20px;
-        width: 100%;
-        height: 200px;
-        border-radius: 5px;
+      background-color: $link-color;
+      border: none;
+      color: #ffffff;
+      padding: 10px;
+      font-weight: 600;
+      margin-bottom: 20px;
+      width: 100%;
+      height: 200px;
+      border-radius: 5px;
     }
 
     .btn_text {
-        background-color: rgba(0, 0, 0, 0.71);
-        text-align:left;
-        padding: 5px;
+      background-color: rgba(0, 0, 0, 0.71);
+      text-align:left;
+      padding: 5px;
     }
 
     .btn_p {
-        color: #ffffff;
-        font-size: 24px;
-        font-family: 'Lato', sans-serif;
-        line-height: 42px;
+      color: #ffffff;
+      font-size: 24px;
+      font-family: 'Lato', sans-serif;
+      line-height: 42px;
     }
 
     .btn_p:hover {
-        text-decoration: none;
+      text-decoration: none;
     }
 
     .btn_nat {
-        background-image: url(/img/provinces/national_4.jpg);
-        background-position: center;
-        background-size: cover;
-    }
-    .btn_wc {
-        background-image: url(/img/provinces/westerncape.jpg);
-        background-position: center;
-        background-size: cover;
-    }
-    .btn_gt {
-        background-image: url(/img/provinces/gauteng.jpg);
-        background-position: center;
-        background-size: cover;
-    }
-    .btn_kzn {
-        background-image: url(/img/provinces/kwazulunatal.jpg);
-        background-position: center;
-        background-size: cover;
-    }
-    .btn_ec {
-        background-image: url(/img/provinces/easterncape.jpg);
-        background-position: center;
-        background-size: cover;
-    }
-    .btn_fs {
-        background-image: url(/img/provinces/freestate.jpg);
-        background-position: center;
-        background-size: cover;
-    }
-    .btn_nw {
-        background-image: url(/img/provinces/northwest.jpg);
-        background-position: center;
-        background-size: cover;
-    }
-    .btn_nc {
-        background-image: url(/img/provinces/northerncape.jpg);
-        background-size: cover;
-    }
-    .btn_mp {
-        background-image: url(/img/provinces/mpumalanga.jpg);
-        background-position: center;
-        background-size: cover;
-    }
-    .btn_lim {
-        background-image: url(/img/provinces/limpopo.jpg);
-        background-position: center;
-        background-size: cover;
+      background-image: url(/img/banner_1.png);
+      background-position: center;
+      background-size: cover;
     }
 
+  }
 }
+
+
 
 .readmore {
   font-size: 16px;
@@ -312,94 +297,94 @@ h2, .h2 {
 }
 
 .img-center {
-    text-align:center;
+  text-align:center;
 }
 .img-center a:hover {
-    text-decoration: none;
+  text-decoration: none;
 }
 
 .big-cta {
-    display: block;
-    padding: 13px;
-    background-color: $link-color;
-    color: white;
-    border: 2px solid $link-color;
+  display: block;
+  padding: 13px;
+  background-color: $link-color;
+  color: white;
+  border: 2px solid $link-color;
 
-    width: 80%;
-    font-size: 18px;
-    margin-left: auto;
-    margin-right: auto;
+  width: 80%;
+  font-size: 18px;
+  margin-left: auto;
+  margin-right: auto;
 
-    &:hover {
-      background-color: white;
-      color: $link-color;
-    }
+  &:hover {
+    background-color: white;
+    color: $link-color;
+  }
 }
 
 .banner a:hover {
-    text-decoration:none;
+  text-decoration:none;
 }
 
 .join_intro {
-    margin-top: 30px;
-    margin-bottom: 30px;
+  margin-top: 30px;
+  margin-bottom: 30px;
 }
 
 .banner a .fa {
-    font-size: 26px;
+  font-size: 26px;
 }
 
 @media screen and (max-width: 768px) {
-    .page-tag {
-        margin-left: 0px;
-    }
+  .page-tag {
+    margin-left: 0px;
+  }
 }
 
 
 @media screen and (max-width: 679px) {
-    .navbar-brand {
-        float: none;
-        padding: 0px;
-        font-size: 16px;
-    }
-    .title-wrap {
-        text-align: center;
-    }
-    .site-header .title-wrap img {
-        float:none;
-        margin-right:0px;
-    }
-    .site-header .img-ico img {
-        padding-top: 0px;
-    }
-    .banner p {
-        font-size: 16px;
-    }
-    .banner a .fa {
+  .navbar-brand {
+    float: none;
+    padding: 0px;
     font-size: 16px;
+  }
+  .title-wrap {
+    text-align: center;
+  }
+  .site-header .title-wrap img {
+    float:none;
+    margin-right:0px;
+  }
+  .site-header .img-ico img {
+    padding-top: 0px;
+  }
+  .banner p {
+    font-size: 16px;
+  }
+  .banner a .fa {
+    font-size: 16px;
+  }
+  .page-tag {
+    margin-left: 0px;
+  }
+  .site-header .subheader {
+    .counter,
+    .byline {
+      text-align: center;
+      font-size: 18px;
     }
-    .page-tag {
-        margin-left: 0px;
-    }
-    .site-header .subheader {
-      .counter,
-      .byline {
-          text-align: center;
-          font-size: 18px;
-      }
-    }
+  }
 }
 
 .credits p {
-    font-size: 14px;
+  font-size: 14px;
 }
 
 // free-text article pages
 article {
-    section {
-        margin-bottom: 20px;
-        margin-top: 20px;
-    }
+  section {
+    margin-bottom: 20px;
+    margin-top: 20px;
+  }
 }
 
 form.search-form {

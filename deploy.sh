@@ -3,20 +3,19 @@
 # Cleans and deploys the project to S3.
 #
 # Usage:
-#   ./deploy.sh <AWS_ACCESS_KEY_ID> <AWS_SECRET_ACCESS_KEY>
+#   ./deploy.sh
+#
+# This script gets the AWS_ACCESS_KEY_ID and AWS_SECRET_ACCESS_KEY from your .env file
+# It will fail if those are not present
 
 # Initialize some vars
-export AWS_ACCESS_KEY_ID="$1"
-export AWS_SECRET_ACCESS_KEY="$2"
-export AWS_DEFAULT_REGION="eu-west-1"
-export BUCKET="opengazettes.or.ke"
-
+. .env
 export DEPLOY_DIR=".deploy"
 
-jekyll build
+bundle exec jekyll build
 
-# Copy the site directory to a temporary location so that modifications we make don't get overwritten by the Jekyll server
-# that is potentially running
+# Copy the site directory to a temporary location so that modifications we make 
+# don't get overwritten by the Jekyll server that is potentially running
 mkdir -p $DEPLOY_DIR
 cp -a _site/. $DEPLOY_DIR
 
@@ -33,6 +32,9 @@ for file in $DEPLOY_DIR/*.html; do
         mv "$file" "$DEPLOY_DIR/`basename "$file" .html`"
     fi
 done
+
+# Go through sitemap.xml and remove occurences of `.html`
+sed -e 's/.html//g' _site/sitemap.xml > $DEPLOY_DIR/sitemap.xml
 
 s3_website push --site=$DEPLOY_DIR
 
