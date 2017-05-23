@@ -25,23 +25,21 @@ layout: default
   </div>
 
   <div class="post-content">
-    <div class="row">
-      <div class="col-md-8">
-        {% for gazette in site.data.gazettes[page.jurisdiction].gazettes[page.year] %}
-          {% assign currentdate = gazette.publication_date | date: "%B %Y" %}
-          {% if currentdate != date %}
-            {% unless forloop.first %}</ul>{% endunless %}
-            <h2 id="{{ gazette.publication_date | date: "%m" }}">{{ currentdate }}</h2>
-            <ul>
-            {% assign date = currentdate %}
-          {% endif %}
-          <li>
-            <a target="_blank" href="https://docs.google.com/gview?url={{ gazette.archive_url }}">{{ gazette.gazette_title }}</a>
-          </li>
-          {% if forloop.last %}</ul>{% endif %}
-        {% endfor %}
-      </div>
-     </div>
+    {% for gazette in site.data.gazettes[page.jurisdiction].gazettes[page.year] %}
+      {% assign currentdate = gazette.publication_date | date: "%B %Y" %}
+      {% if currentdate != date %}
+        {% unless forloop.first %}</ul>{% endunless %}
+        <h2 id="{{ gazette.publication_date | date: "%m" }}">{{ currentdate }}</h2>
+        <ul>
+        {% assign date = currentdate %}
+      {% endif %}
+      <li>
+        <a target="_blank" href="https://docs.google.com/gview?url={{ gazette.archive_url }}">{{ gazette.gazette_title }}</a>
+      </li>
+      {% if forloop.last %}</ul>{% endif %}
+    {% endfor %}
+  </div>
+
   <footer>
     {% include year_nav.html %}
   </footer>
