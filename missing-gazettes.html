@@ -1,0 +1,34 @@
+---
+layout: default
+title: Missing Gazettes
+pagetag: missing - gazettes
+---
+<section class="resources" id="failed_gaz">
+  <h4>Missing Gazettes</h4>
+  <div class="panel-group" id="accordion">
+    <div class="panel panel-default">
+      <ul>
+        {% for gazettes_data in site.data.failed_gazettes['KE'].gazettes %}
+          <li>
+            <div class="panel-heading">
+              <h4 class="panel-title">
+                <a data-toggle="collapse" data-parent="#accordion" href="#collapse{{ gazettes_data[0] }}">
+                {{ gazettes_data[0] }}</a>
+              </h4>
+            </div>
+            <div id="collapse{{ gazettes_data[0] }}" class="panel-collapse collapse">
+              <div class="panel-body">
+                <ul>
+                  {% for gazette in gazettes_data[1] %}
+                    <li> {{ gazette.gazette_title }} </li>
+                  {% endfor %}
+                </ul>
+              </div>
+            </div>
+          </li>
+        {% endfor %}
+      </ul>
+    </div>
+  </div>
+</section>
+
