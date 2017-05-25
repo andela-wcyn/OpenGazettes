@@ -6,8 +6,9 @@ from itertools import chain
 
 
 # jurisdiction -> year -> [gazettes]
-gazettes = {}
 jurisdictions = json.load(open('_data/jurisdictions.json'))
+failed_gazettes = '_data/failed_gazettes.json'
+success_gazettes = '_data/gazettes.json'
 
 
 def write_year(juri, year, gazettes):
@@ -48,7 +49,43 @@ def write_jurisdiction(juri, years):
         write_year(juri, year, years[year])
 
 
-def build_index():
+def build(gazettes, gazette, stats, juri):
+    year = gazette['publication_date'].split('-')[0]
+    iyear = int(year)
+    if 'archive_url' not in gazette:
+        gazette['archive_url'] = 'https://s3-eu-west-1.amazonaws.com/' \
+                                 'cfa-opengazettes-ke/gazettes/' + \
+                                 gazette['files'][0]['path']
+
+    gazettes[juri]['gazettes'][year].append(gazette)
+    gazettes[juri]['years'].add(year)
+
+    stats['count'] += 1
+    stats['earliest_year'] = min([stats['earliest_year'], iyear])
+    stats['latest_year'] = max([stats['latest_year'], iyear])
+    # for jekyll, years in keys should be strings
+    stats['years'][year] += 1
+
+
+def build_options(gazettes, juri, stats, failed):
+    for line in open('data.jsonlines'):
+        gazette = json.loads(line)
+
+        # Don't include gazette if it has an error
+        if failed:
+            if gazette.get('files')[0]['has_error']:
+                build(gazettes, gazette, stats, juri)
+            continue
+
+        if gazette.get('files')[0]['has_error']:
+            continue
+        build(gazettes, gazette, stats, juri)
+
+    return (stats, gazettes)
+
+
+def build_index(gazette_file, failed=False):
+    gazettes = {}
     for juri, info in jurisdictions.iteritems():
         name = info["name"]
         gazettes[juri] = {
@@ -66,28 +103,7 @@ def build_index():
         'counts': {},
     }
 
-    for line in open('data.jsonlines'):
-        gazette = json.loads(line)
-
-        # Don't include gazette if it has an error
-        if gazette.get('files')[0]['has_error']:
-            continue
-
-        year = gazette['publication_date'].split('-')[0]
-        iyear = int(year)
-        if 'archive_url' not in gazette:
-            gazette['archive_url'] = 'https://s3-eu-west-1.amazonaws.com/'\
-                'cfa-opengazettes-ke/gazettes/' + gazette['files'][0]['path']
-
-        gazettes[juri]['gazettes'][year].append(gazette)
-        gazettes[juri]['years'].add(year)
-
-        stats['count'] += 1
-        stats['earliest_year'] = min([stats['earliest_year'], iyear])
-        stats['latest_year'] = max([stats['latest_year'], iyear])
-        # for jekyll, years in keys should be strings
-        stats['years'][year] += 1
-
+    stats, gazettes = build_options(gazettes, juri, stats, failed)
     for juri in gazettes.iterkeys():
         write_jurisdiction(juri, gazettes[juri]['gazettes'])
 
@@ -136,9 +152,10 @@ def build_index():
 
     gazettes['stats'] = stats
 
-    with open('_data/gazettes.json', 'w') as f:
+    with open(gazette_file, 'w') as f:
         json.dump(gazettes, f, sort_keys=True)
 
 
 if __name__ == '__main__':
-    build_index()
+    build_index(success_gazettes, failed=False)
+    build_index(failed_gazettes, failed=True)
