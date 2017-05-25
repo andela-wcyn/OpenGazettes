@@ -10,6 +10,7 @@ jurisdictions = json.load(open('_data/jurisdictions.json'))
 failed_gazettes = '_data/failed_gazettes.json'
 success_gazettes = '_data/gazettes.json'
 
+
 def write_year(juri, year, gazettes):
     juri_info = jurisdictions[juri]
     title = juri_info["name"]
@@ -47,12 +48,14 @@ def write_jurisdiction(juri, years):
     for year in years.iterkeys():
         write_year(juri, year, years[year])
 
+
 def build(gazettes, gazette, stats, juri):
     year = gazette['publication_date'].split('-')[0]
     iyear = int(year)
     if 'archive_url' not in gazette:
         gazette['archive_url'] = 'https://s3-eu-west-1.amazonaws.com/' \
-                                 'cfa-opengazettes-ke/gazettes/' + gazette['files'][0]['path']
+                                 'cfa-opengazettes-ke/gazettes/' + \
+                                 gazette['files'][0]['path']
 
     gazettes[juri]['gazettes'][year].append(gazette)
     gazettes[juri]['years'].add(year)
@@ -62,6 +65,7 @@ def build(gazettes, gazette, stats, juri):
     stats['latest_year'] = max([stats['latest_year'], iyear])
     # for jekyll, years in keys should be strings
     stats['years'][year] += 1
+
 
 def build_options(gazettes, juri, stats, failed):
     for line in open('data.jsonlines'):
@@ -78,6 +82,7 @@ def build_options(gazettes, juri, stats, failed):
         build(gazettes, gazette, stats, juri)
 
     return (stats, gazettes)
+
 
 def build_index(gazette_file, failed=False):
     gazettes = {}
