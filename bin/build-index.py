@@ -73,12 +73,20 @@ def build_options(gazettes, juri, stats, failed):
 
         # Don't include gazette if it has an error
         if failed:
-            if gazette.get('files')[0]['has_error']:
-                build(gazettes, gazette, stats, juri)
+            try:
+                if gazette.get('files')[0]['has_error']:
+                    build(gazettes, gazette, stats, juri)
+            except KeyError:
+                # If "has_error" not set, assume gazette is okay
+                pass
             continue
 
-        if gazette.get('files')[0]['has_error']:
-            continue
+        try:
+            if gazette.get('files')[0]['has_error']:
+                continue
+        except KeyError:
+            # If "has_error" not set, assume gazette is okay
+            pass
         build(gazettes, gazette, stats, juri)
 
     return (stats, gazettes)
