@@ -52,33 +52,35 @@ def write_jurisdiction(juri, years):
 def build(gazettes, gazette, stats, juri):
     year = gazette['publication_date'].split('-')[0]
     iyear = int(year)
-    if 'archive_url' not in gazette:
-        gazette['archive_url'] = 'https://s3-eu-west-1.amazonaws.com/' \
-                                 'cfa-opengazettes-ke/gazettes/' + \
-                                 gazette['files'][0]['path']
+    if gazette.get('files'):
+        if 'archive_url' not in gazette:
+            gazette['archive_url'] = 'https://s3-eu-west-1.amazonaws.com/' \
+                                     'cfa-opengazettes-ng/gazettes/' + \
+                                     gazette.get('files')[0].get('path')
 
-    gazettes[juri]['gazettes'][year].append(gazette)
-    gazettes[juri]['years'].add(year)
+        gazettes[juri]['gazettes'][year].append(gazette)
+        gazettes[juri]['years'].add(year)
 
-    stats['count'] += 1
-    stats['earliest_year'] = min([stats['earliest_year'], iyear])
-    stats['latest_year'] = max([stats['latest_year'], iyear])
-    # for jekyll, years in keys should be strings
-    stats['years'][year] += 1
+        stats['count'] += 1
+        stats['earliest_year'] = min([stats['earliest_year'], iyear])
+        stats['latest_year'] = max([stats['latest_year'], iyear])
+        # for jekyll, years in keys should be strings
+        stats['years'][year] += 1
 
 
 def build_options(gazettes, juri, stats, failed):
-    for line in open('data.jsonlines'):
+    for line in open('gazettes_index.jsonlines'):
         gazette = json.loads(line)
 
         # Don't include gazette if it has an error
-        if failed:
-            if gazette.get('files')[0]['has_error']:
-                build(gazettes, gazette, stats, juri)
-            continue
+        if gazette.get('files'):
+            if failed:
+                if gazette.get('files')[0].get('has_error'):
+                    build(gazettes, gazette, stats, juri)
+                continue
 
-        if gazette.get('files')[0]['has_error']:
-            continue
+            if gazette.get('files')[0].get('has_error'):
+                continue
         build(gazettes, gazette, stats, juri)
 
     return (stats, gazettes)
