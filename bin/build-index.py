@@ -14,7 +14,7 @@ success_gazettes = '_data/gazettes.json'
 def write_year(juri, year, gazettes):
     juri_info = jurisdictions[juri]
     title = juri_info["name"]
-    title = title + " Gazettes"
+    title += " Gazettes"
 
     with open('_gazettes/%s/%s.md' % (juri, year), 'w') as f:
         f.write("---\n")
@@ -36,7 +36,7 @@ def write_jurisdiction(juri, years):
     with open('%s/index.md' % path, 'w') as f:
         juri_info = jurisdictions[juri]
         title = juri_info["name"]
-        title = title + " Gazettes"
+        title += " Gazettes"
 
         f.write("---\n")
         f.write("layout: jurisdiction\n")
@@ -54,7 +54,7 @@ def build(gazettes, gazette, stats, juri):
     iyear = int(year)
     if 'archive_url' not in gazette:
         gazette['archive_url'] = 'https://s3-eu-west-1.amazonaws.com/' \
-                                 'cfa-opengazettes-ke/gazettes/' + \
+                                 'cfa-opengazettes-ng/gazettes/' + \
                                  gazette['files'][0]['path']
 
     gazettes[juri]['gazettes'][year].append(gazette)
@@ -68,7 +68,8 @@ def build(gazettes, gazette, stats, juri):
 
 
 def build_options(gazettes, juri, stats, failed):
-    for line in open('data.jsonlines'):
+    # print "\nJurisd: ", jurisdictions[juri], "\n"
+    for line in open(jurisdictions[juri]["collection_filename"]):
         gazette = json.loads(line)
 
         # Don't include gazette if it has an error

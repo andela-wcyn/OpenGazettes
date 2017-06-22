@@ -1,6 +1,7 @@
 {
-    "KE": {
-        "name": "Kenya",
+    "NG": {
+        "name": "Nigeria",
+        "collection_filename": "gazettes_index.jsonlines",
         "search_collection": 0
     }
 }
