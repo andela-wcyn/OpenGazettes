@@ -1,6 +1,8 @@
 ---
 layout: base
 body_class: home
+country: Nigeria
+country_adjective: Nigerian
 ---
 <section class="introduction">
   <div class="container">
@@ -48,8 +50,8 @@ body_class: home
     <div class="row">
       <div class="col-sm-6 col-sm-offset-3">
 
-        <h2>Kenya Gazettes</h2>
-        <a class="btn_p" href="/gazettes/KE/"><button class="gazettes_nav_btn btn_nat" name="button"><span class="btn_text">Kenyan Government Gazettes</span></button></a>
+        <h2>{{ page.country }} Gazettes</h2>
+        <a class="btn_p" href="/gazettes/KE/"><button class="gazettes_nav_btn btn_nat" name="button"><span class="btn_text">{{ page.country_adjective }} Government Gazettes</span></button></a>
       </div>
     </div>
   </div>

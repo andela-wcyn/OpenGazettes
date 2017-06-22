@@ -7,6 +7,8 @@
 
 # Site settings
 title: Open Gazettes Kenya
+country: Nigeria
+country_adjective: Nigerian
 email: gazettes@codeforafrica.org
 url: http://opengazettes.or.ke
 enforce_ssl: opengazettes.or.ke

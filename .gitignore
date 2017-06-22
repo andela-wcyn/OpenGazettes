@@ -4,3 +4,4 @@ _site
 data.jsonlines
 .env
 .idea/
+/gazettes_index.jsonlines
