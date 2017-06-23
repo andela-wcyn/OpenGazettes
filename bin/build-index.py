@@ -68,21 +68,21 @@ def build(gazettes, gazette, stats, juri):
 
 
 def build_options(gazettes, juri, stats, failed):
-    # print "\nJurisd: ", jurisdictions[juri], "\n"
     for line in open(jurisdictions[juri]["collection_filename"]):
         gazette = json.loads(line)
 
         # Don't include gazette if it has an error
-        if failed:
-            if gazette.get('files')[0]['has_error']:
-                build(gazettes, gazette, stats, juri)
-            continue
+        gazette_files = gazette.get('files')
+        if gazette_files:
+            if failed:
+                if gazette.get('files')[0].get('has_error'):
+                    build(gazettes, gazette, stats, juri)
+                continue
+            if gazette.get('files')[0].get('has_error'):
+                continue
+            build(gazettes, gazette, stats, juri)
 
-        if gazette.get('files')[0]['has_error']:
-            continue
-        build(gazettes, gazette, stats, juri)
-
-    return (stats, gazettes)
+    return stats, gazettes
 
 
 def build_index(gazette_file, failed=False):
