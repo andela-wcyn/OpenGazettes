@@ -37,5 +37,5 @@ exclude: [vendor]
 google_analytics: UA-33350783-11
 
 aleph_url: https://nigeria.opengazettes.co
-s3_url: https://archive.opengazettes.or.ke
+s3_url: http://nigeria.opengazettes.co.s3-website-eu-west-1.amazonaws.com/
 
