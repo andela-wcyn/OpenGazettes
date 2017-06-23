@@ -1,9 +1,6 @@
 ---
 layout: base
 body_class: home
-jurisdiction: Nigeria
-jurisdiction_name: Nigerian
-jurisdiction_abbrev: NG
 ---
 <section class="introduction">
   <div class="container">
@@ -51,8 +48,8 @@ jurisdiction_abbrev: NG
     <div class="row">
       <div class="col-sm-6 col-sm-offset-3">
 
-        <h2>{{ page.jurisdiction }} Gazettes</h2>
-        <a class="btn_p" href="/gazettes/{{ page.jurisdiction_abbrev }}/"><button class="gazettes_nav_btn btn_nat" name="button"><span class="btn_text">{{ page.jurisdiction_name }} Government Gazettes</span></button></a>
+        <h2>{{ site.jurisdiction }} Gazettes</h2>
+        <a class="btn_p" href="/gazettes/{{ site.jurisdiction_abbrev }}/"><button class="gazettes_nav_btn btn_nat" name="button"><span class="btn_text">{{ site.jurisdiction_name }} Government Gazettes</span></button></a>
       </div>
     </div>
   </div>

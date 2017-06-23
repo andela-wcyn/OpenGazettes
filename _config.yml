@@ -9,6 +9,9 @@
 title: Open Gazettes Nigeria
 email: gazettes@codeforafrica.org
 url: http://opengazettes.or.ng
+jurisdiction: Nigeria
+jurisdiction_name: Nigerian
+jurisdiction_abbrev: NG
 enforce_ssl: opengazettes.or.ng
 baseurl:
 description: Making Government Gazettes freely available.
