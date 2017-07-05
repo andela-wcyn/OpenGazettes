@@ -9,3 +9,23 @@
     </span>
   </div>
 </form>
+<p class="sample-searches">
+    Examples:
+    <!-- ngRepeat: sample in metadata.app.samples --><span ng-repeat="sample in metadata.app.samples">
+      <!-- ngIf: $last -->
+      <a href="{{ site.aleph_url }}/documents?q=Country">Country</a>
+      <!-- ngIf: !$last --><span ng-if="!$last">,</span><!-- end ngIf: !$last -->
+    </span><!-- end ngRepeat: sample in metadata.app.samples --><span ng-repeat="sample in metadata.app.samples">
+      <!-- ngIf: $last -->
+      <a href="{{ site.aleph_url }}/documents?q=&quot;issue of new land title deed&quot;">"issue of new land title deed"</a>
+      <!-- ngIf: !$last --><span ng-if="!$last">,</span><!-- end ngIf: !$last -->
+    </span><!-- end ngRepeat: sample in metadata.app.samples --><span ng-repeat="sample in metadata.app.samples">
+      <!-- ngIf: $last --><span ng-if="$last">or</span><!-- end ngIf: $last -->
+      <a href="{{ site.aleph_url }}/documents?q=&quot;appointment of a liquidator&quot;">"appointment of a liquidator"</a>
+      <!-- ngIf: !$last -->
+    </span><!-- end ngRepeat: sample in metadata.app.samples -->
+    ,
+      or
+    <a href="{{ site.aleph_url }}/documents/sources">browse sources</a>
+    .
+</p>
