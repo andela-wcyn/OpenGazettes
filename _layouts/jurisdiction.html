@@ -19,7 +19,7 @@ layout: default
         <div class="row jurisdiction-stats">
           {% assign years = site.data.gazettes[page.jurisdiction].years | reverse %}
           {% for thisyear in years %}
-          
+
             <!--<div class="col-md-4">
               <h2><a href="{{ thisyear }}">{{ thisyear }}</a>
               <small>{{ site.data.gazettes.stats.counts[page.jurisdiction].available.year[thisyear] }} {% if site.data.gazettes.stats.counts[page.jurisdiction].available.year[thisyear] == 1 %}gazette{% else %}gazettes{% endif %}</small></h2>
@@ -35,13 +35,13 @@ layout: default
             <!-- </div> -->
             </div>
 
-          
+
           {% endfor %}
         </div>
 
       </div>
 
-      <div class="col-md-4">
+      <div class="col-sm-4">
           {% include resources.html %}
       </div>
 
