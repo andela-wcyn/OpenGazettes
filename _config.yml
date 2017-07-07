@@ -11,7 +11,7 @@ email: gazettes@codeforafrica.org
 url: http://opengazettes.or.ng
 jurisdiction: [Country Name]
 jurisdiction_adjective: [Country Adjective]
-jurisdiction_abbrev: NG
+jurisdiction_code: [Country Code]
 enforce_ssl: opengazettes.or.ng
 baseurl:
 description: Making Government Gazettes freely available.
