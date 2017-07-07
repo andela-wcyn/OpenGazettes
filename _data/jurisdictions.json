@@ -1,6 +1,7 @@
 {
     "[COUNTRY-CODE]": {
         "name": "[Country Name]",
+        "collection_filename": "gazettes_index.jsonlines",
         "search_collection": -1
     }
 }
