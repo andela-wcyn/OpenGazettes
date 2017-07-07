@@ -20,9 +20,9 @@ mkdir -p $DEPLOY_DIR
 cp -a _site/. $DEPLOY_DIR
 
 for file in $DEPLOY_DIR/gazettes/NG/*.html; do
-    if [ $file != "$DEPLOY_DIR/gazettes/NG/index.html" ];
+    if [ $file != "$DEPLOY_DIR/gazettes/$JURISDICTION_CODE/index.html" ];
     then
-        mv "$file" "$DEPLOY_DIR/gazettes/NG/`basename "$file" .html`"
+        mv "$file" "$DEPLOY_DIR/gazettes/$JURISDICTION_CODE/`basename "$file" .html`"
     fi
 done
 
