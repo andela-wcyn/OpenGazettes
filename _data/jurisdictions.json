@@ -1,6 +1,6 @@
 {
-    "KE": {
-        "name": "Kenya",
-        "search_collection": 0
+    "[COUNTRY-CODE]": {
+        "name": "[Country Name]",
+        "search_collection": -1
     }
 }
