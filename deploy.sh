@@ -1,5 +1,5 @@
 #!/bin/bash
-# 
+#
 # Cleans and deploys the project to S3.
 #
 # Usage:
@@ -14,15 +14,15 @@ export DEPLOY_DIR=".deploy"
 
 bundle exec jekyll build
 
-# Copy the site directory to a temporary location so that modifications we make 
+# Copy the site directory to a temporary location so that modifications we make
 # don't get overwritten by the Jekyll server that is potentially running
 mkdir -p $DEPLOY_DIR
 cp -a _site/. $DEPLOY_DIR
 
-for file in $DEPLOY_DIR/gazettes/KE/*.html; do
-    if [ $file != "$DEPLOY_DIR/gazettes/KE/index.html" ];
+for file in $DEPLOY_DIR/gazettes/$JURISDICTION_CODE/*.html; do
+    if [ $file != "$DEPLOY_DIR/gazettes/$JURISDICTION_CODE/index.html" ];
     then
-        mv "$file" "$DEPLOY_DIR/gazettes/KE/`basename "$file" .html`"
+        mv "$file" "$DEPLOY_DIR/gazettes/$JURISDICTION_CODE/`basename "$file" .html`"
     fi
 done
 

@@ -1,6 +1,6 @@
 <form method="GET" action="{{ site.aleph_url }}/documents" class="search-form">
-  {% if site.data.gazettes[page.jurisdiction].search_collection %}
-  <input type="hidden" name="filter:collection_id" value="{{ site.data.gazettes[page.jurisdiction].search_collection }}">
+  {% if site.data.gazettes[site.jurisdiction_code].search_collection %}
+  <input type="hidden" name="filter:collection_id" value="{{ site.data.gazettes[site.jurisdiction_code].search_collection }}">
   {% endif %}
   <div class="input-group">
     <input type="text" class="form-control" placeholder="Search the gazettes..." autocomplete="off" name="q">

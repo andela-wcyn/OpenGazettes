@@ -2,7 +2,7 @@
   {% assign years = site.data.gazettes[page.jurisdiction].years | reverse %}
   {% for year in years %}
     <li>
-      <a href="/gazettes/KE/{{ year }}" class="{% if page.year == year %} active {% endif %}">{{ year }}</a>
+      <a href="/gazettes/{{ site.jurisdiction_code}}/{{ year }}" class="{% if page.year == year %} active {% endif %}">{{ year }}</a>
     </li>
   {% endfor %}
 </ul>

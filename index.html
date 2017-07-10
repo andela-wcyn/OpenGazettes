@@ -17,7 +17,7 @@ body_class: home
         </div>
 
         <div class="row icons-section">
-          <div class="col-sm-6">   
+          <div class="col-sm-6">
               <img class="icons-cta" src="img/icons/notebook.png" alt="Using open gazettes as a journalist" />
               <p><a href="http://code4sa.org/2016/10/06/gazette-journalists.html" target="_blank">Using OpenGazettes as a journalist</a>
           </div>
@@ -48,8 +48,8 @@ body_class: home
     <div class="row">
       <div class="col-sm-6 col-sm-offset-3">
 
-        <h2>Kenya Gazettes</h2>
-        <a class="btn_p" href="/gazettes/KE/"><button class="gazettes_nav_btn btn_nat" name="button"><span class="btn_text">Kenyan Government Gazettes</span></button></a>
+        <h2>{{ site.jurisdiction }} Gazettes</h2>
+        <a class="btn_p" href="/gazettes/{{ site.jurisdiction_code }}/"><button class="gazettes_nav_btn btn_nat" name="button"><span class="btn_text">{{ site.jurisdiction_adjective }} Government Gazettes</span></button></a>
       </div>
     </div>
   </div>
