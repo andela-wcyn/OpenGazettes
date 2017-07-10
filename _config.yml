@@ -12,6 +12,8 @@ url: http://opengazettes.or.ng
 jurisdiction: [Country Name]
 jurisdiction_adjective: [Country Adjective]
 jurisdiction_code: [Country Code]
+source_attribution: [Source Attribution]
+source_attribution_link: [Source Attribution Link]
 enforce_ssl: opengazettes.or.ng
 baseurl:
 description: Making Government Gazettes freely available.

@@ -19,7 +19,7 @@ bundle exec jekyll build
 mkdir -p $DEPLOY_DIR
 cp -a _site/. $DEPLOY_DIR
 
-for file in $DEPLOY_DIR/gazettes/NG/*.html; do
+for file in $DEPLOY_DIR/gazettes/$JURISDICTION_CODE/*.html; do
     if [ $file != "$DEPLOY_DIR/gazettes/$JURISDICTION_CODE/index.html" ];
     then
         mv "$file" "$DEPLOY_DIR/gazettes/$JURISDICTION_CODE/`basename "$file" .html`"
