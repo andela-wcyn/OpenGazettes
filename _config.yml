@@ -39,7 +39,7 @@ defaults:
 markdown: kramdown
 exclude: [vendor]
 
-google_analytics: UA-33350783-11
+google_analytics: UA-100279361-3
 
 aleph_url: https://opengazettes.co
 s3_url: http://nigeria.opengazettes.co.s3-website-eu-west-1.amazonaws.com/
