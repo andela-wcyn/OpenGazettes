@@ -1,7 +1,7 @@
 {
-    "[COUNTRY-CODE]": {
-        "name": "[Country Name]",
-        "collection_filename": "filename.jsonlines",
-        "search_collection": -1
+    "NG": {
+        "name": "Nigeria",
+        "collection_filename": "gazettes_index.jsonlines",
+        "search_collection": 3
     }
 }

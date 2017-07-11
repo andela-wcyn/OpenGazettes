@@ -9,11 +9,11 @@
 title: Open Gazettes [Country Name]
 email: gazettes@codeforafrica.org
 url: http://opengazettes.or.ng
-jurisdiction: [Country Name]
-jurisdiction_adjective: [Country Adjective]
-jurisdiction_code: [Country Code]
-source_attribution: [Source Attribution]
-source_attribution_link: [Source Attribution Link]
+jurisdiction: Nigeria
+jurisdiction_adjective: Nigerian
+jurisdiction_code: NG
+source_attribution: Center for Research Libraries: Global Resource Network
+source_attribution_link: https://dds.crl.edu/crldelivery/27040
 enforce_ssl: opengazettes.or.ng
 baseurl:
 description: Making Government Gazettes freely available.
@@ -42,5 +42,5 @@ exclude: [vendor]
 google_analytics: UA-33350783-11
 
 aleph_url: https://opengazettes.co
-s3_url: http:/[s3_url].amazonaws.com/
+s3_url: http://nigeria.opengazettes.co.s3-website-eu-west-1.amazonaws.com/
 
