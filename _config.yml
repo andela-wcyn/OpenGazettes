@@ -42,5 +42,5 @@ exclude: [vendor]
 google_analytics: UA-33350783-11
 
 aleph_url: https://opengazettes.co
-s3_url: http:/[s3_url].amazonaws.com/
+s3_url: http://[s3_bucket_url]
 
