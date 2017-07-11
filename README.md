@@ -14,7 +14,7 @@ The structure is simple. Each jurisdiction (country/province) and year has an en
 
 To update this list from the production index:
 
-    curl https://s3-eu-west-1.amazonaws.com/cfa-opengazettes-ke/gazettes/data.jsonlines -O
+    curl https://s3-eu-west-1.amazonaws.com/cfa-opengazettes-ng/gazettes/gazettes_index.jsonlines -O
     python bin/build-index.py
 
 # Deploying to S3
