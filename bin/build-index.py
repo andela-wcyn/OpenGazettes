@@ -69,7 +69,6 @@ def build(gazettes, gazette, stats, juri):
 
 
 def build_options(gazettes, juri, stats, failed):
-    print "Juri here: ", juri;
     for line in open(jurisdictions[juri]["collection_filename"]):
         gazette = json.loads(line)
 

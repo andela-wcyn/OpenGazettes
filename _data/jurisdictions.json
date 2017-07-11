@@ -1,7 +1,7 @@
 {
-    "[COUNTRY-CODE]": {
-        "name": "[Country Name]",
-        "collection_filename": "filename.jsonlines",
-        "search_collection": -1
+    "KE": {
+        "name": "Kenya",
+        "collection_filename": "data.jsonlines",
+        "search_collection": 0
     }
 }
