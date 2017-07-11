@@ -36,10 +36,14 @@
           <p>Who is a part of the <a href="https://twitter.com/hashtag/GazetteLiberation">#GazetteLiberation</a> campaign?</p>
         </div>
         <div class="col-sm-10">
-          <a href="https://codeforkenya.org" target="_blank"><img src="{{ "/img/logos/cfkenya.png" | prepend: site.baseurl }}" class="logo" alt="Code for Kenya"></a>
+	        {% assign org_link_start = 'https://codefor' %}
+			{% assign org_link_end = '.org' %}
+			{% assign full_link = org_link_start | append: site.jurisdiction | append: org_link_end %}
+          <a href={{ full_link }} target="_blank"><img src="{{ "/img/logos/cf" | append: site.jurisdiction | append: ".png" | prepend: site.baseurl }}" class="logo" alt="Code for {{ site.jurisdiction }}"></a>
           <a href="https://openup.org.za" target="_blank" rel="noopener"><img src="{{ "/img/logos/openup.svg" | prepend: site.baseurl }}" class="logo" alt="OpenUpZA"></a>
           <a href="https://codeforafrica.org/" target="_blank"><img src="{{ "/img/logos/cfafrica.png" | prepend: site.baseurl }}" class="logo" alt="Code for Africa"></a>
           <a href="https://investigativecenters.org/" target="_blank"><img src="{{ "/img/logos/ancir.png" | prepend: site.baseurl }}" class="logo" alt="ANCIR"></a>
+        <a href="https://www.africanlii.org/" target="_blank"><img src="{{ "/img/logos/africanlii.png" | prepend: site.baseurl }}" class="logo" alt="AfricanLii"></a>
         </div>
       </div>
     </div> <!-- /.container -->
